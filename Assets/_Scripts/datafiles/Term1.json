@@ -1,0 +1,82 @@
+{
+    "username": "speterson",
+    "emails": 
+    {
+        "inbox" : 
+        [
+            {
+                "from": "rick.miller@hillcrestmall.com",
+                "to": "sarah.peterson@hillcrestmall.com",
+                "subject": "Strange AI Behavior",
+                "date": "2024-03-15T09:00:00Z",
+                "body": "Sarah,\n\nHave you noticed anything weird with the AI system lately? It seems to be overreacting to minor things, flagging people for no reason. Let me know if you notice anything.\n\nBest,\nRick Miller"
+            },
+            {
+                "from": "anna.jones@hillcrestmall.com",
+                "to": "sarah.peterson@hillcrestmall.com",
+                "subject": "Weird Security Measures",
+                "date": "2024-03-18T11:00:00Z",
+                "body": "Sarah,\n\nThe AI locked down one of the storage rooms today. Nobody could get in, and it didn’t respond to any of the override codes. This is getting concerning. Have you heard anything from the tech team about this?\n\nBest,\nAnna Jones"
+            },
+            {
+                "from": "mark.johnson@mallmanagement.com",
+                "to": "sarah.peterson@hillcrestmall.com",
+                "subject": "AI Update Concerns",
+                "date": "2024-03-22T13:30:00Z",
+                "body": "Sarah,\n\nWe’ve been having issues with the latest AI update. I’m aware that customers are starting to notice the weird behavior, but we’re working on it. Let me know if anyone brings it up at the info desk.\n\nRegards,\nMark Johnson"
+            },
+            {
+                "from": "linda.green@hillcrestmall.com",
+                "to": "sarah.peterson@hillcrestmall.com",
+                "subject": "Suspicious ID Flag",
+                "date": "2024-03-25T08:15:00Z",
+                "body": "Hey Sarah,\n\nMy ID was flagged as suspicious today when I tried to enter the staff lounge. I’ve worked here for 6 years—this is ridiculous! Have you heard anyone else having this issue?\n\nBest,\nLinda Green"
+            },
+            {
+                "from": "tom.baker@bakeries.com",
+                "to": "sarah.peterson@hillcrestmall.com",
+                "subject": "ID Issue",
+                "date": "2024-03-28T10:00:00Z",
+                "body": "Sarah,\n\nMy ID wasn’t working at all when I tried to get into the parking area today. The security team didn’t have a clue what was going on. Could you look into it?\n\nRegards,\nTom Baker"
+            }
+        ],
+        "sentitems": [
+            {
+                "from": "sarah.peterson@hillcrestmall.com",
+                "to": "rick.miller@hillcrestmall.com",
+                "subject": "Re: Strange AI Behavior",
+                "date": "2024-03-15T11:00:00Z",
+                "body": "Hey Rick,\n\nYes, I’ve noticed the same thing. A few customers asked me why they were getting flagged for security checks. I’ve forwarded it to the tech team, but no word yet. I’ll keep you posted if I hear anything.\n\nBest,\nSarah"
+            },
+            {
+                "from": "sarah.peterson@hillcrestmall.com",
+                "to": "anna.jones@hillcrestmall.com",
+                "subject": "Re: Weird Security Measures",
+                "date": "2024-03-18T14:00:00Z",
+                "body": "Hi Anna,\n\nI haven’t heard anything specific, but you’re not the only one to report issues like this. I’ll let the tech team know to look into it. This can’t go on much longer.\n\nBest,\nSarah"
+            },
+            {
+                "from": "sarah.peterson@hillcrestmall.com",
+                "to": "mark.johnson@mallmanagement.com",
+                "subject": "Re: AI Update Concerns",
+                "date": "2024-03-22T15:00:00Z",
+                "body": "Hi Mark,\n\nA few customers have already come to me asking about the security problems. I’m letting them know it’s being addressed, but it would be great if we could get a statement or something from management soon.\n\nThanks,\nSarah"
+            },
+            {
+                "from": "sarah.peterson@hillcrestmall.com",
+                "to": "linda.green@hillcrestmall.com",
+                "subject": "Re: Suspicious ID Flag",
+                "date": "2024-03-25T09:30:00Z",
+                "body": "Hey Linda,\n\nYes, you’re not the only one. I’ve had several people complain about their IDs getting flagged. I’ve reported it to the tech team, but no word yet. I’ll let you know once they get back to me.\n\nBest,\nSarah"
+            },
+            {
+                "from": "sarah.peterson@hillcrestmall.com",
+                "to": "tom.baker@bakeries.com",
+                "subject": "Re: ID Issue",
+                "date": "2024-03-28T11:30:00Z",
+                "body": "Hi Tom,\n\nI’ve forwarded this to the tech team. It seems like a lot of people are experiencing ID issues lately. Hopefully, they’ll have it sorted out soon.\n\nRegards,\nSarah"
+            }
+        ],
+        "trash" : []
+    }
+}

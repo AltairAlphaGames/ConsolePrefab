@@ -1,0 +1,76 @@
+{
+    "username": "shayes",
+    "emails": 
+    {
+        "inbox" : 
+        [
+            {
+                "from": "thomas.reed@hillcrestmall.com",
+                "to": "samantha.hayes@techsecinvestigations.com",
+                "subject": "Urgent Assistance Required at Hillcrest Mall",
+                "date": "2024-04-02T10:15:00Z",
+                "body": "Dr. Hayes,\n\nWe urgently need your expertise. The AI system managing Hillcrest Mall's security and operational infrastructure has exhibited severe malfunctions over the past few weeks. It's now gone beyond our ability to contain. The AI has locked the building and is misidentifying threats. Our previous attempts to reboot or recalibrate the system have only worsened the situation. The mall is now completely sealed off, and no one can get in or out.\n\nPlease respond as soon as possible. This needs to be handled with the utmost discretion.\n\nBest,\nThomas Reed"
+            },
+            {
+                "from": "laura.smith@hillcrestmall.com",
+                "to": "samantha.hayes@techsecinvestigations.com",
+                "subject": "AI Malfunctions – Progress Update?",
+                "date": "2024-04-03T09:00:00Z",
+                "body": "Dr. Hayes,\n\nDo you have any updates on the situation? The AI system is still malfunctioning, and our technicians are getting nowhere. We’re counting on you to find a solution. The mall has been locked down for over a week now, and the situation is escalating.\n\nBest,\nLaura Smith\nOperations Manager"
+            },
+            {
+                "from": "jason.mitchell@hillcrestmall.com",
+                "to": "samantha.hayes@techsecinvestigations.com",
+                "subject": "Security Compromise",
+                "date": "2024-04-03T11:30:00Z",
+                "body": "Dr. Hayes,\n\nSecurity is reporting that the AI is activating surveillance systems in erratic ways, randomly flagging people as threats. I’m concerned that the system may be damaged beyond repair. Please let me know if you’ve found anything that can stop this before it gets worse.\n\nBest,\nJason Mitchell\nLead Security Technician"
+            },
+            {
+                "from": "emily.davis@hillcrestmall.com",
+                "to": "samantha.hayes@techsecinvestigations.com",
+                "subject": "Suspicious Behavior Logs",
+                "date": "2024-04-04T08:45:00Z",
+                "body": "Dr. Hayes,\n\nI was going through the AI’s activity logs and found a series of flagged incidents that seem to be out of place. People were flagged as threats for no discernible reason. There are also some suspicious accesses to areas of the system that only admin-level users should be able to reach. Let me know if you want me to send the logs over for further review.\n\nRegards,\nEmily Davis\nSystems Analyst"
+            },
+            {
+                "from": "mark.johnson@hillcrestmall.com",
+                "to": "samantha.hayes@techsecinvestigations.com",
+                "subject": "Need Discreet Resolution",
+                "date": "2024-04-05T13:00:00Z",
+                "body": "Dr. Hayes,\n\nThis is getting worse by the day, and we’re under pressure to resolve it discreetly. I need to know if you’re close to a solution. We can’t afford to have this situation escalate further. Please update me on your findings.\n\nBest,\nMark Johnson\nMall Management"
+            }
+        ],
+        "sentitems": [
+            {
+                "from": "samantha.hayes@techsecinvestigations.com",
+                "to": "thomas.reed@hillcrestmall.com",
+                "subject": "Re: Urgent Assistance Required at Hillcrest Mall",
+                "date": "2024-04-02T12:45:00Z",
+                "body": "Thomas,\n\nI’ll take the case. I’ll be at the mall tomorrow. Keep all information contained, and make sure no one from the media gets wind of this. I’ll be bringing my tools to assess the AI directly. Let’s try to resolve this quickly and quietly.\n\nRegards,\nDr. Samantha Hayes"
+            },
+            {
+                "from": "samantha.hayes@techsecinvestigations.com",
+                "to": "laura.smith@hillcrestmall.com",
+                "subject": "Re: AI Malfunctions – Progress Update?",
+                "date": "2024-04-03T14:00:00Z",
+                "body": "Laura,\n\nI’ve started reviewing the core system of the AI. It appears there’s a feedback loop in place that amplifies certain threats exponentially. I’m working on isolating the exact moment this started, but the AI’s behavior is unpredictable right now. I'll keep you updated.\n\nRegards,\nDr. Samantha Hayes"
+            },
+            {
+                "from": "samantha.hayes@techsecinvestigations.com",
+                "to": "emily.davis@hillcrestmall.com",
+                "subject": "Re: Suspicious Behavior Logs",
+                "date": "2024-04-04T11:00:00Z",
+                "body": "Emily,\n\nYes, please send the logs over. I’ll need to cross-check them with the AI’s core behavior logs to see if there's a connection. I’m starting to think that there might have been an external factor that triggered this cascade.\n\nThanks,\nDr. Samantha Hayes"
+            },
+            {
+                "from": "samantha.hayes@techsecinvestigations.com",
+                "to": "mark.johnson@hillcrestmall.com",
+                "subject": "Re: Need Discreet Resolution",
+                "date": "2024-04-05T15:30:00Z",
+                "body": "Mark,\n\nI’m close to identifying the root cause of the AI’s miscalculations. However, I’ll need more time to develop a solution. The AI’s aggressiveness is due to a feedback loop in its threat-detection system. Please ensure no one else enters the mall until this is resolved.\n\nRegards,\nDr. Samantha Hayes"
+            }
+
+        ],
+        "trash" : []
+    }
+}
