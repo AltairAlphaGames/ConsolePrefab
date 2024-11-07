@@ -11,6 +11,7 @@ public class EmailApp : MonoBehaviour
 {
     public TMP_Text titletext;  // The ListItem prefab
     public Button close;  // The ListItem prefab
+    public ScrollRect emailListScrollRect;
     public TMP_Dropdown mailboxselect;  // The ListItem prefab
     public GameObject listItemPrefab;  // The ListItem prefab
     public Transform listContentPanel;     // The Content panel in the Scroll View
@@ -47,7 +48,6 @@ public class EmailApp : MonoBehaviour
     {
 
         string selectedOption = mailboxselect.options[selectedIndex].text;
-
         populateEmailList(selectedIndex);
     }
 
@@ -77,7 +77,7 @@ public class EmailApp : MonoBehaviour
     void populateEmailList(int mailboxIdx = 0)
     {
         List<EmailData> mailbox;
-
+        
         ClearScrollView(listContentPanel);
 
         switch (mailboxIdx)
@@ -125,6 +125,9 @@ public class EmailApp : MonoBehaviour
 
     public void ClearScrollView(Transform contentPanel)
     {
+        //Reset scrollrect to zero
+        emailListScrollRect.normalizedPosition = new Vector2(0, 0);
+
         // Loop through all the children of the content panel and destroy them
         foreach (Transform child in contentPanel)
         {
