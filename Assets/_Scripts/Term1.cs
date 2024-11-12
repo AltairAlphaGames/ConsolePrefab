@@ -31,6 +31,7 @@ public class Term1 : MonoBehaviour
     public BrowserApp browserApp;
     public ArgusApp argusApp;
 
+    private Conversation conversation;
     private bool isMenuOpen = false;  // Flag to check if the menu is open
 
     // Start is called before the first frame update
@@ -132,14 +133,11 @@ public class Term1 : MonoBehaviour
     // Method to handle button click
     void OnArgusClick()
     {
-        argusApp.ProcessArgusFile( argusFile );
         argusApp.SetTerminalOwner( this.ownerCharacter );
+        argusApp.SetEcounterId(0);
+        argusApp.SetConversationId(0);
 
         argusApp.SetActive(true);
-
-        argusApp.ClearText();
-        argusApp.executeArgusGreeting();
-
     }
 
     // This method is called when the user clicks on the object
@@ -151,6 +149,5 @@ public class Term1 : MonoBehaviour
             OpenMenu();
         }
     }
-
 }
 

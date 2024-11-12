@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Globalization;
 
 using TMPro;
 
@@ -12,13 +9,17 @@ public class ArgusApp : MonoBehaviour
     public Button close;  // The ListItem prefab
     public float typingSpeed = 0.05f;
     public GameObject argusResponsePrefab;  // The ListItem prefab
+    public GameObject ListSepPrefab;  // The ListItem separator prefab
     public ScrollRect argusScrollRect;     // The Content panel in the Scroll View
     public Transform argusContentPanel;     // The Content panel in the Scroll View
     public TMP_Text argusText;     // The Content panel in the Scroll View
 
     private string ownerCharacter = "Unknown";
     private TextAsset argusFile;
-    private ArgusData argusData;
+    private int encounterId;     // Determines the encounter ID to use
+    private int converstationId;     // Determines the conversation ID to use
+
+    private T1Dialogue dialogue;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,15 @@ public class ArgusApp : MonoBehaviour
         if (this.close != null)
         {
             this.close.onClick.AddListener(OnCloseClick);
-        }    
-    }
+        }
+
+        this.dialogue = new T1Dialogue(0, 0);
+
+        this.ClearText();
+        // Display the first node
+        this.executeArgusGreeting();
+        //DisplayNode(this.dialogue.GetFirstNode());
+    } 
 
     void OnCloseClick()
     {
@@ -44,6 +52,16 @@ public class ArgusApp : MonoBehaviour
         this.gameObject.SetActive(setActive);
     }
 
+    public void SetEcounterId(int id)
+    {
+        this.encounterId = id;
+    }
+
+    public void SetConversationId(int id)
+    {
+        this.converstationId = id;
+    }
+
     public void SetTerminalOwner( string o )
     {
         this.ownerCharacter = o;
@@ -53,12 +71,7 @@ public class ArgusApp : MonoBehaviour
     {
         this.argusFile = f;
 
-        this.argusData = this.ParseArgusJson();
-    }
-
-    public ArgusData ParseArgusJson()
-    {
-        return JsonUtility.FromJson<ArgusData>(argusFile.text); 
+        //DialogueSetup().Start();
     }
 
     public void ClearScrollView(Transform contentPanel)
@@ -68,17 +81,21 @@ public class ArgusApp : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    } 
+
+    public void executeArgusGreeting()
+    {
+        String greeting = this.dialogue.GetFirstNode().Text.Replace("[TerminalOwner]", this.ownerCharacter );
+
+        StartCoroutine(TypeText(greeting, this.dialogue.GetFirstNode()));
+
+        //DisplayNode(this.dialogue.GetFirstNode());
     }
 
-    public void executeArgusGreeting(int encounterIdx = 0, int conversationIdx = 0)
+    System.Collections.IEnumerator TypeText(string typeText, DialogueNode node)
     {
-        ClearScrollView(argusContentPanel);
-        
-        StartCoroutine(TypeText(encounterIdx, conversationIdx, argusData.encounters[encounterIdx].conversations[conversationIdx].text.Replace("[TerminalOwner]", this.ownerCharacter )));
-    }
 
-    IEnumerator TypeText(int encounterIdx = 0, int conversationIdx = 0, string typeText ="")
-    {
+
         foreach (char letter in typeText)
         {
             if (this.gameObject.activeSelf != true)
@@ -93,86 +110,40 @@ public class ArgusApp : MonoBehaviour
 
         argusText.text += "\n\n";
 
-        populateResponseList(encounterIdx, conversationIdx);
+        DisplayNode(node);
+        //populateResponseList();
     }
 
-    void populateResponseList(int encounterIdx, int conversationIdx)
+    void DisplayNode(DialogueNode node)
     {
-        List<Response> commonMenu = argusData.encounters[encounterIdx].commonMenu;
-        List<Response> responses = argusData.encounters[encounterIdx].conversations[conversationIdx].responses;
-        
-        List<Response> menuItems = commonMenu;
-        if (responses.Count > 0)
+        // Display node text
+        Debug.Log(node.Options.Count);
+
+        if (node.Options.Count == 0)
         {
-            menuItems = responses;
+            DisplayNode(this.dialogue.GetFirstNode());
+            return; 
         }
 
-        foreach (Response item in menuItems)
+        // Display options
+        foreach (DialogueOption option in node.Options)
         {
-            if (item.selectId != conversationIdx)
-            {
-                GameObject listItem = Instantiate(argusResponsePrefab, argusContentPanel); 
-                Button btn = listItem.GetComponent<Button>();
-                btn.onClick.AddListener(() => executeArgusGreeting(encounterIdx, item.selectId));
-                TMP_Text[] textFields = listItem.GetComponentsInChildren<TMP_Text>(); 
-                
-                textFields[0].text = item.response.Replace("[TerminalOwner]", ownerCharacter);
-            }
+            //Debug.Log("Option: " + option.Text);
+
+            GameObject listItem = Instantiate(argusResponsePrefab, argusContentPanel); 
+            Button btn = listItem.GetComponent<Button>();
+            btn.onClick.AddListener(() => ExecuteOptionSelection(option, option.NextNode));
+            TMP_Text[] textFields = listItem.GetComponentsInChildren<TMP_Text>(); 
+            
+            textFields[0].text = option.Text.Replace("[TerminalOwner]", ownerCharacter);
         }
     }
 
-}
-
-
-//Parse argus responses
-[System.Serializable]
-public class ArgusData
-{
-    public List<Encounters> encounters;
-
-    public ArgusData(List<Encounters> encounters)
+    void ExecuteOptionSelection(DialogueOption opt, DialogueNode dlgNode)
     {
-        this.encounters = encounters;
-    } 
-}
+        ClearScrollView(argusContentPanel);
 
-[System.Serializable]
-public class Encounters
-{
-    public int encounterId;
-    public List<Response> commonMenu;
-    public List<Conversations> conversations;
-
-    public Encounters(int encounterId, List<Response> commonMenu, List<Conversations> conversations)
-    {
-        this.encounterId = encounterId;
-        this.conversations = conversations;
-        this.commonMenu = commonMenu;
+        StartCoroutine(TypeText(dlgNode.Text.Replace("[TerminalOwner]", ownerCharacter), dlgNode));
     }
-}
 
-[System.Serializable]
-public class Conversations
-{
-    public string text;
-    public List<Response> responses;
-
-    public Conversations(string text, List<Response> response)
-    {
-        this.text = text;
-        this.responses = response;
-    }
-}
-
-[System.Serializable]
-public class Response
-{
-    public int selectId;
-    public string response;
-
-    public Response(int selectId, string response)
-    {
-        this.selectId = selectId;
-        this.response = response;
-    }
 }
